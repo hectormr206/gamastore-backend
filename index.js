@@ -23,12 +23,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json({ limit: '50mb' }));
 
 // cors
-const whitelist = [
-  'http://localhost:3000',
-  'http://localhost:3002',
-  'https://proveedorarem.com',
-  'https://proveedorarem.vercel.app',
-];
+const whitelist = ['http://localhost:3001', 'https://gamastore-one.vercel.app'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
