@@ -4,8 +4,8 @@ Sistema para gestionar ventas por retail.
 
 🟢 **Live Frontend:** https://gamastore-one.vercel.app
 
-🟢 **Live Backend:** https://gamastore-one.herokuapp.com
-🟢 **Live Backend Doc:** https://gamastore-one.herokuapp.com/docs
+🟢 **Live Backend:** https://gamastore.herokuapp.com/
+🟢 **Live Backend Doc:** https://gamastore.herokuapp.com/docs
 
 ## 🚀 Empezando
 
