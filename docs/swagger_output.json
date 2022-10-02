@@ -1,0 +1,1030 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "GAMA STORE REST API",
+    "description": "API Documentation for GAMA STORE",
+    "contact": {
+      "name": "@hectormr206",
+      "url": "https://hectormr.com",
+      "mail": "contact@hectormr.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3003/"
+    }
+  ],
+  "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Authenticate user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Auth"
+              },
+              "examples": {
+                "Auth": {
+                  "$ref": "#/components/examples/Auth"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_details/": {
+      "get": {
+        "tags": [
+          "Users - User details"
+        ],
+        "summary": "Get all the details of the users",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Users - User details"
+        ],
+        "summary": "Create new user and new user details",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetails"
+              },
+              "examples": {
+                "User and user details": {
+                  "$ref": "#/components/examples/NewUserDetails"
+                },
+                "User details": {
+                  "$ref": "#/components/examples/UserDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_details/{id}": {
+      "get": {
+        "tags": [
+          "Users - User details"
+        ],
+        "summary": "Get user details by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Users - User details"
+        ],
+        "summary": "Update user details by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetails"
+              },
+              "examples": {
+                "User details": {
+                  "$ref": "#/components/examples/UserDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users - User details"
+        ],
+        "summary": "Delete user details by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create new user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                  "$ref": "#/components/examples/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                  "$ref": "#/components/examples/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/products/measures/": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get all brands",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Create new brand",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductMeasure"
+              },
+              "examples": {
+                "ProductMeasure": {
+                  "$ref": "#/components/examples/ProductMeasure"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/measures/{id}": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Update brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductMeasure"
+              },
+              "examples": {
+                "ProductMeasure": {
+                  "$ref": "#/components/examples/ProductMeasure"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/categories/": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get all brands",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Create new brand",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCategory"
+              },
+              "examples": {
+                "ProductCategory": {
+                  "$ref": "#/components/examples/ProductCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/categories/{id}": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Update brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCategory"
+              },
+              "examples": {
+                "ProductCategory": {
+                  "$ref": "#/components/examples/ProductCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/brands/": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get all brands",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Create new brand",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductBrand"
+              },
+              "examples": {
+                "ProductBrand": {
+                  "$ref": "#/components/examples/ProductBrand"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/brands/{id}": {
+      "get": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Get brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products (Brands)"
+        ],
+        "summary": "Update brand by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductBrand"
+              },
+              "examples": {
+                "ProductBrand": {
+                  "$ref": "#/components/examples/ProductBrand"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get all products",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create new product",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "Product": {
+                  "$ref": "#/components/examples/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get product by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Update product by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "Product": {
+                  "$ref": "#/components/examples/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "examples": {
+      "Auth": {
+        "value": {
+          "username": "hectormr",
+          "password": "123456"
+        }
+      },
+      "User": {
+        "value": {
+          "username": "hectormr206",
+          "password": "123456",
+          "role": "admin"
+        }
+      },
+      "UserDetails": {
+        "value": {
+          "name": "Héctor",
+          "lastName": "Martínez",
+          "email": "contact@hectormr.com",
+          "phone": "1234567890",
+          "userId": 1
+        }
+      },
+      "NewUserDetails": {
+        "value": {
+          "name": "Héctor",
+          "lastName": "Martínez",
+          "email": "contact@hectormr.com",
+          "phone": "1234567890",
+          "user": {
+            "username": "hectormr206",
+            "password": "123456",
+            "role": "admin"
+          }
+        }
+      },
+      "ProductMeasure": {
+        "value": {
+          "name": "Legal"
+        }
+      },
+      "ProductCategory": {
+        "value": {
+          "name": "Café"
+        }
+      },
+      "ProductBrand": {
+        "value": {
+          "name": "Pieza"
+        }
+      },
+      "Product": {
+        "value": {
+          "name": "Legal sobre 30 gr",
+          "universalCode": "7501206613733",
+          "productBrandId": 1,
+          "productCategoryId": 2,
+          "productMeasureId": 1
+        }
+      }
+    },
+    "schemas": {
+      "Auth": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "hectormr"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "hectormr"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "role": {
+            "type": "string",
+            "example": "admin"
+          }
+        }
+      },
+      "UserDetails": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Héctor"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Martínez"
+          },
+          "email": {
+            "type": "string",
+            "example": "contact@hectormr.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "1234567890"
+          },
+          "userId": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      },
+      "ProductMeasure": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Legal"
+          }
+        }
+      },
+      "ProductCategory": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Café"
+          }
+        }
+      },
+      "ProductBrand": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Pieza"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Legal sobre 30 gr"
+          },
+          "universalCode": {
+            "type": "string",
+            "example": "7501206613733"
+          },
+          "productBrandId": {
+            "type": "number",
+            "example": 1
+          },
+          "productCategoryId": {
+            "type": "number",
+            "example": 2
+          },
+          "productMeasureId": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

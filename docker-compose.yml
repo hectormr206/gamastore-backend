@@ -1,0 +1,45 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_store_gama
+    environment:
+      - POSTGRES_DB=store_gama
+      - POSTGRES_USER=hectormr206
+      - POSTGRES_PASSWORD=161Maja
+    ports:
+      - 5433:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=contact@hectormr.com
+      - PGADMIN_DEFAULT_PASSWORD=161Maja
+    ports:
+      - 5051:80
+    depends_on:
+      - postgres
+
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_DATABASE=store_gama
+      - MYSQL_ROOT_PASSWORD=161Maja
+      - MYSQL_PORT=3308
+    ports:
+      - 3308:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - MYSQL_ROOT_PASSWORD=161Maja
+      - PMA_HOST=mysql
+    ports:
+      - 8081:80
+    depends_on:
+      - mysql
