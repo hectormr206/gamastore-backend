@@ -48,7 +48,7 @@ Sistema para gestionar ventas por retail.
 #### Conexión remota
 
 - Iniciar sesión con tu cuenta: `heroku login`
-- Agregar las conexiones remotas de heroku con proyecto ya existente: `heroku git:remote -a proveedorarem-backend`
+- Agregar las conexiones remotas de heroku con proyecto ya existente: `heroku git:remote -a gamastore`
   - Si quieres que Heroku cree una aplicación con nombre aleatorio: `heroku create`
 - Verificar las conexiones creadas: `git remote -v`
 - Crear y gestionar la base de datos postgres en heroku: `heroku addons:create heroku-postgresql:hobby-dev`
